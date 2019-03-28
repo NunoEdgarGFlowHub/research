@@ -1,9 +1,13 @@
 # Changelog
 
+## Added
+- Added clarification as to which read responses are "in-channel" vs "out-of-channel".
+
 ## Unreleased
 ### Changed
 - Participation reward for Indexers is now a function of curation signal, rather than query volume. See [#85](https://github.com/graphprotocol/research/issues/85) for additional context.
 - Curation reward now paid through fees rather than inflation.
+- `v` field on Attestation and Balance Proof messages changed to type `uint8`
 
 ## 0.0.1 - 2019-01-25
 
