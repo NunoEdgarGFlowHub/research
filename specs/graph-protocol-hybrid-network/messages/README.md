@@ -70,10 +70,11 @@ An off-chain representation of the [Data Retrieval Timelock](#data-retrieval-tim
 | requestCID | String | The content ID of the read operation to which the Indexing Node must respond with a valid attestation, in order to unlock the payment. |
 
 #### Read Response
+There are several possible statuses for a read response. Read responses fall into two-categories:
+- **In-channel**. Must update the nonce of the balance proof. Must be accompanied by an attestation. May update balances or other state in the state channel. May be used as a part of settling the channel.
+- **Out-of-channel**. Must not update the nonce of the balance proof. Must not update the balance or other state of the balance proof. May not be used in settling the channel on-chain.
 
-##### Fields
-There are several possible types for a read response:
-
+##### In-channel statuses
 ###### Success
 Sent if the read operation was successful, within the gas and response size limits specified. Includes the return data an attestation that the response is correct.
 
@@ -97,6 +98,9 @@ Sent if the result of calling the read operation is larger than the `maxBytes` p
 | Field Name | Field Type | Description |
 | ---------- | ---------- | ----------- |
 | status | String | The constant "MAX_BYTES_EXCEEDED" |
+| attestation | Object | An Attestation, where the `requestCID` is the CID of the object containing the above field. |
+
+##### Out-of-channel statuses
 
 ###### Insufficient Funds
 Sent if the maximum amount of tokens which may be consumed by the read operation would exceed the balance in the payment channel.
