@@ -160,7 +160,7 @@ Additionally there are chain-specific parameters:
 | responseCID | bytes   | The content ID of the response. |
 | gasUsed     | uint256    | The gas used to process the read operation. |
 | responseBytes     | uint256    | The size of the response data in bytes. |
-| v | uint256 | The ECDSA recovery ID . |
+| v | uint8 | The ECDSA recovery ID . |
 | r | bytes32 | The ECDSA signature r. |
 | s | bytes32 | The ECDSA signature v. |
 
@@ -188,7 +188,7 @@ The Payment Channel Balance Proof is a signed off-chain message which represents
 | maxLockedAmount | uint256 | The maximum amount of tokens locked in pending transfers. |
 | locksRoot | bytes32 | The root of a Merkle tree containing all locked data retrieval timelocks. |
 | nonce | uint256 | A monotonically increasing nonce value starting at `1`. Used for strictly ordering balance proofs. |
-| v | uint256 | The ECDSA recovery ID . |
+| v | uint8 | The ECDSA recovery ID . |
 | r | bytes32 | The ECDSA signature r. |
 | s | bytes32 | The ECDSA signature v. |
 
